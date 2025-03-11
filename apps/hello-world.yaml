@@ -6,7 +6,7 @@ metadata:
 spec:
   destination:
     namespace: hello-world-ns
-    name: kind
+    server: https://kubernetes.default.svc
   project: default
   source:
     chart: hello-world
