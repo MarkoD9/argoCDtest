@@ -1,0 +1,20 @@
+apiVersion: argoproj.io/v1alpha1
+kind: Application
+metadata:
+  name: hello-world
+  namespace: argocd
+spec:
+  destination:
+    namespace: hello-world-ns
+    name: kind
+  project: default
+  source:
+    chart: hello-world
+    repoURL: https://helm.github.io/examples
+    targetRevision: 0.1.0
+  syncPolicy:
+    automated:
+      prune: true
+      selfHeal: true
+  syncOptions:
+  - CreateNamespace=true
